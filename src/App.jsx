@@ -44,7 +44,7 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div className="mx-2 mt-5  2xl:desktop-screen 2xl:mx-auto">
+    <div className="mx-3 mt-5  2xl:desktop-screen 2xl:mx-auto">
       <RouterProvider router={router} />
     </div>
   );

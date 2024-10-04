@@ -6,6 +6,25 @@
   .desktop-screen {
     max-width: 1440px;
   }
+  .pr-clr {
+    color: #3b82f6; /* (blue) */
+  }
+  .sec-clr {
+    color: #10b981; /* (green) */
+  }
+  .light-text {
+    color: #f3f4f6; /* (light gray) */
+  }
+
+  .bg-clr {
+    background-color: #f3f4f6; /* (light gray) */
+  }
+  .text-clr {
+    color: #1f2937; /* (dark gray) */
+  }
+  .accent-clr {
+    color: #ef4444; /* (red, for delete actions) */
+  }
 }
 
 * {
@@ -18,3 +37,6 @@ html {
   scroll-behavior: smooth;
 }
 
+img {
+  max-width: 100%;
+}

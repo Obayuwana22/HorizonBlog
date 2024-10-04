@@ -27,13 +27,13 @@ const Navbar = () => {
   ];
   return (
     <div>
-      <header className="fixed w-full h-20 top-0 left-0 bg-white shadow">
-        <div className="flex items-center justify-between relative mx-2 mt-5 lg:mx-10 2xl:max-w-[1440px] 2xl:mx-auto">
+      <header className="fixed w-full h-20 top-0 left-0 bg-white shadow ">
+        <div className="flex items-center justify-between relative mx-3 mt-5 lg:mx-14 2xl:max-w-[1440px] 2xl:mx-auto">
           <div className="text-3xl font-bold text-gray-900">HorizonBlog</div>
           <nav
             className={`absolute top-10 px-2 py-5 w-52 bg-black transform transition-all duration-500 ease-in-out md:hidden ${
               toggleMenu
-                ? "opacity-100 translate-y-3"
+                ? "opacity-100 translate-y-5"
                 : "opacity-0 -translate-y-10 pointer-events-none"
             }`}
           >
