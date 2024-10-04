@@ -31,20 +31,20 @@ const Navbar = () => {
         <div className="flex items-center justify-between relative mx-3 mt-5 lg:mx-14 2xl:max-w-[1440px] 2xl:mx-auto">
           <div className="text-3xl font-bold text-gray-900">HorizonBlog</div>
           <nav
-            className={`absolute top-10 px-2 py-5 w-52 bg-black transform transition-all duration-500 ease-in-out w-full h-dvh md:hidden ${
+            className={`absolute top-10 px-2 py-5 bg-black transform transition-all duration-500 ease-in-out w-full h-dvh md:hidden ${
               toggleMenu
                 ? "opacity-100 translate-y-5"
                 : "opacity-0 -translate-y-10 pointer-events-none"
             }`}
           >
             <Search />
-            <ul className="mt-5">
+            <ul className="mt-5 flex flex-col gap-5">
               {navLinks.map((navLink) => {
                 const { id, href, text } = navLink;
                 return (
                   <li
                     key={id}
-                    className="capitalize font-semibold  text-white my-2"
+                    className="capitalize font-semibold  text-white "
                   >
                     <NavLink to={href}>{text}</NavLink>
                   </li>
