@@ -4,7 +4,7 @@ const Profile = () => {
   return (
     <div className="mt-[80px] ">
       {/* Profile */}
-      <Link to="/signup">Sign up</Link>
+      <Link to="/sign up">Sign up</Link>
     </div>
   );
 };

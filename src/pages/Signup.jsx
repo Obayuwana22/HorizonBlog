@@ -2,12 +2,17 @@ import { Form, Link } from "react-router-dom";
 import FormInput from "../components/FormInput";
 import SubmitBtn from "../components/SubmitBtn";
 
+window.document.body.style.backgroundColor = "#f3f4f6";
+
 const Signup = () => {
   return (
     <section className="flex flex-col justify-center min-h-screen ">
-      <Form method="" className="border rounded-lg p-5 my-20 md:max-w-md md:mx-auto">
+      <Form
+        method="post"
+        className="border rounded-lg p-5 my-20 md:max-w-md md:mx-auto bg-white"
+      >
         <div className="mb-10">
-          <div className="text-2xl font-bold text-center">Sign Up</div>
+          <div className="text-2xl font-bold text-center mb-2">Sign Up</div>
           <p className="text-center text-gray-500">
             Create your account to start blogging
           </p>

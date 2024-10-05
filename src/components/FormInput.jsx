@@ -9,7 +9,7 @@ const FormInput = ({ htmlFor, label, type, name, id, placeholder }) => {
         name={name}
         id={id}
         placeholder={placeholder}
-        className="border px-3 py-2"
+        className="border px-3 py-2 rounded-md outline-offset-4 outline-gray-400"
       />
     </div>
   );
