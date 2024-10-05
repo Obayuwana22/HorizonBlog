@@ -7,6 +7,7 @@ import {
   Posts,
   Profile,
   Signup,
+  ForgotPassword,
 } from "./pages";
 
 const router = createBrowserRouter([
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
   {
     path: "/sign up",
     element: <Signup />,
+  },
+  {
+    path: "/forgot password",
+    element: <ForgotPassword />,
   },
 ]);
 
