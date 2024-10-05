@@ -46,7 +46,12 @@ const Navbar = () => {
                     key={id}
                     className="capitalize font-semibold  text-white "
                   >
-                    <NavLink to={href}>{text}</NavLink>
+                    <NavLink
+                      to={href}
+                      onClick={() => setToggleMenu(!toggleMenu)}
+                    >
+                      {text}
+                    </NavLink>
                   </li>
                 );
               })}
