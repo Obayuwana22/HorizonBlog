@@ -1,10 +1,18 @@
-const SubmitBtn = ({ text }) => {
+
+const SubmitBtn = ({ text, onClick, isLoading }) => {
+ 
   return (
     <button
       type="submit"
-      className="bg-black text-white w-full py-2 rounded-lg"
+      onClick={onClick}
+      className="bg-black text-white w-full py-2 rounded-lg outline-none"
+      disabled={isLoading}
     >
-      {text}
+      {isLoading ? (
+        <div className="loading text-white">Hi</div>
+      ) : (
+        text || "Submit"
+      )}
     </button>
   );
 };

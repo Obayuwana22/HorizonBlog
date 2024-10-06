@@ -30,7 +30,7 @@ const ForgotPassword = () => {
           />
         </div>
         <div className="mt-10 mb-5">
-          <SubmitBtn text="Log in" />
+          <SubmitBtn text="Reset Password" />
         </div>
         <p className="text-center">
           Back to <Link to="/login">Login</Link>

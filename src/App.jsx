@@ -10,6 +10,7 @@ import {
   ForgotPassword,
 } from "./pages";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -51,6 +52,7 @@ function App() {
   return (
     <div className="mx-3 mt-5 2xl:desktop-screen 2xl:mx-auto">
       <RouterProvider router={router} />
+    
     </div>
   );
 }
