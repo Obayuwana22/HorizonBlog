@@ -1,6 +1,4 @@
-
 const SubmitBtn = ({ text, onClick, isLoading }) => {
- 
   return (
     <button
       type="submit"
@@ -9,7 +7,7 @@ const SubmitBtn = ({ text, onClick, isLoading }) => {
       disabled={isLoading}
     >
       {isLoading ? (
-        <div className="loading text-white">Hi</div>
+        <div className="loading text-white"></div>
       ) : (
         text || "Submit"
       )}

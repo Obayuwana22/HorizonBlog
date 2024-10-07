@@ -3,7 +3,7 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA9fPeynljfzHTLQmsMWvI1j9qcobv4CUc",
+  apiKey: import.meta.env.VITE_API_KEY,
   authDomain: "horizonblog-ae97c.firebaseapp.com",
   projectId: "horizonblog-ae97c",
   storageBucket: "horizonblog-ae97c.appspot.com",
@@ -19,3 +19,4 @@ export const db = getFirestore(app);
 
 // authentication
 export const auth = getAuth(app);
+

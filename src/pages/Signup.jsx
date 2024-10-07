@@ -24,21 +24,22 @@ const Signup = () => {
   const handleClick = async (e) => {
     e.preventDefault();
 
+    if (name === "") {
+      setName("Please enter your name");
+      return;
+    }
+
     if (password !== confirmPassword) {
       setMessage("Password do not match");
       return;
     }
 
     try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      const user = userCredential.user;
-      console.log("user created successfully:", user);
-      toast.success("Account created successfully");
-      navigate("/login");
+      await createUserWithEmailAndPassword(auth, email, password);
+      console.log(toast.success("Account created successfully"));
+      setTimeout(() => {
+        navigate("/login");
+      }, 5000);
     } catch (error) {
       console.log(error.message);
       setMessage(error.message);
