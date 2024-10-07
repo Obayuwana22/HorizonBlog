@@ -1,10 +1,44 @@
+import { Calendar, Mail } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import ProfilePosts from "../components/ProfilePosts";
+import ProfileComments from "../components/ProfileComments";
+import ProfileAbout from "../components/ProfileAbout";
+import Logout from "../components/Logout";
 
 const Profile = () => {
+  const [activeTab, setActiveTab] = useState("Posts");
+
+  const tabs = ["Posts", "Comments", "About"];
+
+  const TabContent = ({ activeTab }) => {
+    if (activeTab === "Posts") {
+      return (
+        <div>
+          <ProfilePosts />
+        </div>
+      );
+    }
+    if (activeTab === "Comments") {
+      return (
+        <div>
+          <ProfileComments />
+        </div>
+      );
+    }
+    if (activeTab === "About") {
+      return (
+        <div>
+          <ProfileAbout />
+        </div>
+      );
+    }
+  };
+
   return (
     <section className="flex flex-col justify-center min-h-screen">
       <div className=" border rounded-lg p-5 my-20 md:max-w-md md:mx-auto bg-white">
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col md:flex-row items-center gap-4">
           <div className="rounded-full w-32 h-32 object-cover bg-gray-300">
             <img src="" alt="Profile picture/avatar" />
           </div>
@@ -12,11 +46,48 @@ const Profile = () => {
             <div className="text-2xl font-bold">John Doe</div>
             <p className="text-gray-500">Web Developer</p>
           </div>
-          <div>
-            <button>Edit Profile</button>
+          <div className="ml-auto">
+            <button
+              type="button"
+              className="bg-black text-white font-semibold px-4 py-2 rounded-lg outline-none"
+            >
+              Edit Profile
+            </button>
           </div>
         </div>
+        <div className="grid grid-cols-1  gap-4 mb-6 mt-10 text-gray-600">
+          <div className="flex items-center gap-2 ">
+            <Mail color="gray" />
+            <span>john.doe@example.com</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Calendar color="gray" />
+            <span>Joined June 2023</span>
+          </div>
+        </div>
+        <div className="flex justify-between bg-gray-100 p-1 rounded-lg">
+          {tabs.map((tab) => {
+            return (
+              <button
+                key={tab}
+                className={`w-full text-center py-1 font-semibold outline-none  ${
+                  activeTab === tab
+                    ? "bg-white text-black rounded-lg shadow"
+                    : "text-gray-500"
+                }`}
+                onClick={() => setActiveTab(tab)}
+              >
+                {tab}
+              </button>
+            );
+          })}
+        </div>
+        <div>
+          <TabContent activeTab={activeTab} />
+        </div>
         <Link to="/sign up">Sign up</Link>
+
+        <Logout />
       </div>
     </section>
   );

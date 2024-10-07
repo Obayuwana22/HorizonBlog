@@ -14,7 +14,6 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [message, setMessage] = useState("");
 
   const navigate = useNavigate();
   const navigation = useNavigation();
@@ -25,12 +24,24 @@ const Signup = () => {
     e.preventDefault();
 
     if (name === "") {
-      setName("Please enter your name");
+      toast.error("Please enter your name");
+      return;
+    }
+
+    if (email === "") {
+      toast.error("Please enter your email address");
+    } else if (!email.includes("@")) {
+      toast.error("Please enter a valid email address with @");
+      return;
+    }
+
+    if (password === "" && confirmPassword === "") {
+      toast.error("Please enter a secure password");
       return;
     }
 
     if (password !== confirmPassword) {
-      setMessage("Password do not match");
+      toast.error("Password do not match");
       return;
     }
 
@@ -42,7 +53,6 @@ const Signup = () => {
       }, 5000);
     } catch (error) {
       console.log(error.message);
-      setMessage(error.message);
       toast.error(error.message);
     }
   };
@@ -74,6 +84,7 @@ const Signup = () => {
             name="fullName"
             id="full name"
             placeholder="John Doe"
+            required={true}
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -84,6 +95,7 @@ const Signup = () => {
             name="email"
             id="email"
             placeholder="John@example.com"
+            required={true}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -94,6 +106,7 @@ const Signup = () => {
             name="password"
             id="password"
             placeholder="must be atleast 6 digits"
+            required={true}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -104,10 +117,10 @@ const Signup = () => {
             name="confirmPassword"
             id="confirm password"
             placeholder="Confirm Password"
+            required={true}
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
-          {/* <div>{message}</div> */}
           <div className="flex items-center gap-2">
             <input type="checkbox" />
             <label className="">
@@ -117,7 +130,6 @@ const Signup = () => {
             </label>
           </div>
         </div>
-        <p className="text-red-700 text-center text-sm mt-5">{message}</p>
         <div className="mt-10 mb-5">
           <SubmitBtn
             text="Sign up"

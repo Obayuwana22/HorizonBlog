@@ -7,6 +7,7 @@ const FormInput = ({
   placeholder,
   value,
   onChange,
+  required = false,
 }) => {
   return (
     <div className="flex flex-col gap-2">
@@ -20,6 +21,7 @@ const FormInput = ({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        required={required}
         className="border px-3 py-2 rounded-md outline-offset-4 outline-gray-400"
       />
     </div>
