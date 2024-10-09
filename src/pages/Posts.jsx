@@ -5,7 +5,7 @@ const Posts = () => {
   return (
     <section>
       <div className="mt-[150px]">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 2xl:grid-cols-3">
           {blogCards.map((card) => {
             const { id, img, title, text, avatar, name } = card;
             return (
