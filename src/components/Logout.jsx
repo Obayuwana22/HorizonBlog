@@ -25,7 +25,7 @@ const Logout = () => {
       <button
         type="button"
         onClick={handleLogout}
-        className="bg-black text-white font-semibold px-4 py-2 rounded-lg outline-none"
+        className="bg-black text-white text-sm font-semibold px-3 py-1 rounded-lg outline-none"
       >
         Logout
       </button>

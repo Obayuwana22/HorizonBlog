@@ -1,6 +1,5 @@
 import { Calendar, Mail } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import ProfilePosts from "../components/ProfilePosts";
 import ProfileComments from "../components/ProfileComments";
 import ProfileAbout from "../components/ProfileAbout";
@@ -58,12 +57,13 @@ const Profile = () => {
         <div className="grid grid-cols-1  gap-4 mb-6 mt-10 text-gray-600">
           <div className="flex items-center gap-2 ">
             <Mail color="gray" />
-            <span>john.doe@example.com</span>
+            <span>John@gmail.com</span>
           </div>
           <div className="flex items-center gap-2">
             <Calendar color="gray" />
             <span>Joined June 2023</span>
           </div>
+          <Logout />
         </div>
         <div className="flex justify-between bg-gray-100 p-1 rounded-lg">
           {tabs.map((tab) => {
@@ -85,9 +85,6 @@ const Profile = () => {
         <div>
           <TabContent activeTab={activeTab} />
         </div>
-        <Link to="/sign up">Sign up</Link>
-
-        <Logout />
       </div>
     </section>
   );

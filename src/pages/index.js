@@ -6,3 +6,4 @@ export { default as Posts } from "./Posts";
 export { default as Profile } from "./Profile";
 export { default as Signup } from "./Signup";
 export { default as ForgotPassword } from "./ForgotPassword";
+export { default as SinglePost } from "./SinglePost";

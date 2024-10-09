@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { blogCards } from "../../data";
 
 const RecentPosts = () => {
@@ -9,8 +10,15 @@ const RecentPosts = () => {
           {blogCards.map((card) => {
             const { id, img, title, text, avatar, name } = card;
             return (
-              <div key={id} className="flex flex-col gap-10 border rounded-lg p-5 ">
-                  <img src={img} alt="blog image" className="rounded-tr-lg rounded-tl-lg" />
+              <div
+                key={id}
+                className="flex flex-col gap-10 border rounded-lg p-5 "
+              >
+                <img
+                  src={img}
+                  alt="blog image"
+                  className="rounded-tr-lg rounded-tl-lg"
+                />
                 <div className="text-xl font-semibold">{title}</div>
                 <p className="text-gray-500">{text}</p>
                 <div className="flex items-center justify-between">
@@ -18,8 +26,8 @@ const RecentPosts = () => {
                     <div>{avatar}</div>
                     <span>{name}</span>
                   </div>
-                  <button className="bg-white border text-black font-semibold px-4 py-2 rounded-lg">
-                    Read More
+                  <button className=" border text-black font-semibold px-4 py-2 rounded-lg">
+                    <Link to="/home/single-post">Read More</Link>
                   </button>
                 </div>
               </div>

@@ -1,8 +1,8 @@
 import { Form, Link, useNavigate, useNavigation } from "react-router-dom";
 import FormInput from "../components/FormInput";
 import SubmitBtn from "../components/SubmitBtn";
-import { auth } from "../firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, provider } from "../firebase";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -47,12 +47,23 @@ const Signup = () => {
 
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      console.log(toast.success("Account created successfully"));
+      toast.success("Account created successfully");
       setTimeout(() => {
-        navigate("/login");
-      }, 5000);
+        navigate("/home");
+      }, 1000);
     } catch (error) {
-      console.log(error.message);
+      toast.error(error.message);
+    }
+  };
+
+  const handleSignUpWithGoogle = async () => {
+    try {
+      await signInWithPopup(auth, provider);
+      toast.success("Account created successfully");
+      setTimeout(() => {
+        navigate("/home");
+      }, 1000);
+    } catch (error) {
       toast.error(error.message);
     }
   };
@@ -136,6 +147,15 @@ const Signup = () => {
             onClick={handleClick}
             isLoading={isSubmitting}
           />
+        </div>
+        <div className="text-center">Or</div>
+        <div className="mt-5 mb-5">
+          <button
+            onClick={handleSignUpWithGoogle}
+            className="text-blue-700 w-full py-2 border  rounded-lg outline-none"
+          >
+            Sign up with Google
+          </button>
         </div>
         <p className="text-center">
           Already have an account? <Link to="/login">Log in</Link>

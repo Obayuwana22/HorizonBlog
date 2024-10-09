@@ -20,10 +20,10 @@ const Navbar = () => {
   }, [toggleMenu]);
 
   const navLinks = [
-    { id: nanoid(), href: "/", text: "home" },
-    { id: nanoid(), href: "/posts", text: "posts" },
-    { id: nanoid(), href: "/createpost", text: "create post" },
-    { id: nanoid(), href: "/profile", text: "profile" },
+    { id: nanoid(), href: "/home", text: "home" },
+    { id: nanoid(), href: "/home/posts", text: "posts" },
+    { id: nanoid(), href: "/home/create-post", text: "create post" },
+    { id: nanoid(), href: "/home/profile", text: "profile" },
   ];
   return (
     <div>
