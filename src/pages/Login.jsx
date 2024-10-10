@@ -100,7 +100,7 @@ const Login = () => {
             onClick={handleSignInWithGoogle}
             className="text-blue-700 w-full py-2 border  rounded-lg outline-none"
           >
-            Sign up with Google
+            Sign in with Google
           </button>
         </div>
         <p className="text-center">

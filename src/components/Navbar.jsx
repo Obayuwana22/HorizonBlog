@@ -42,10 +42,7 @@ const Navbar = () => {
               {navLinks.map((navLink) => {
                 const { id, href, text } = navLink;
                 return (
-                  <li
-                    key={id}
-                    className="capitalize font-semibold  text-white "
-                  >
+                  <li key={id} className="capitalize font-semibold text-white">
                     <NavLink
                       to={href}
                       onClick={() => setToggleMenu(!toggleMenu)}

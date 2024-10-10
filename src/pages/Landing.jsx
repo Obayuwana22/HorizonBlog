@@ -1,13 +1,7 @@
-import { useRef } from "react";
+import { Link } from "react-router-dom";
 import RecentPosts from "../components/RecentPosts";
 
 const Landing = () => {
-  const recentPostRef = useRef(null);
-
-  const scrollToSection = (elementRef) => {
-    elementRef.current.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section className="mt-[80px]">
       <div className="bg-blue-600 text-white p-12 rounded-lg mb-20">
@@ -18,12 +12,11 @@ const Landing = () => {
         <button
           type="button"
           className="bg-white text-black font-semibold px-4 py-2  rounded-lg"
-          onClick={() => scrollToSection(recentPostRef)}
         >
-          Start Reading
+          <Link to="/home/posts">Start Reading</Link>
         </button>
       </div>
-      <div ref={recentPostRef} className="scroll-mt-32">
+      <div className="scroll-mt-32">
         <RecentPosts />
       </div>
     </section>

@@ -1,9 +1,10 @@
 import FormInput from "../components/FormInput";
+import img from "../assets/undrawcreatepost.svg";
 
 const CreatePost = () => {
   return (
-    <section className="flex flex-col justify-center min-h-screen">
-      <div className="border rounded-lg p-5 my-20 md:max-w-md md:mx-auto bg-white">
+    <section className="grid grid-col-1 justify-center xl:grid-cols-2 xl:justify-between xl:items-center xl:gap-10">
+      <div className="border rounded-lg p-5 my-20 md:w-[500px] md:mx-auto xl:mx-0 bg-white">
         <form>
           <div className="text-2xl font-bold">Create New Post</div>
           <div className="flex flex-col gap-8">
@@ -32,7 +33,7 @@ const CreatePost = () => {
                 // value={}
                 // onChange={}
                 rows="10"
-                className="border px-3 py-2 rounded-md outline-offset-4 outline-gray-400"
+                className="border px-3 py-2 rounded-md outline-offset-4 outline-gray-400 resize-none"
               ></textarea>
             </div>
 
@@ -83,6 +84,9 @@ const CreatePost = () => {
             </button>
           </div>
         </form>
+      </div>
+      <div className="my-20 hidden xl:block">
+        <img src={img} alt="publish post illustration" />
       </div>
     </section>
   );
