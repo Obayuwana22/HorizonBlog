@@ -3,7 +3,7 @@ import img from "../assets/undrawcreatepost.svg";
 
 const CreatePost = () => {
   return (
-    <section className="grid grid-col-1 justify-center xl:grid-cols-2 xl:justify-between xl:items-center xl:gap-10">
+    <section className="grid grid-col-1 justify-center lg:grid-cols-2 lg:justify-between lg:items-center xl:gap-10">
       <div className="border rounded-lg p-5 my-20 md:w-[500px] md:mx-auto xl:mx-0 bg-white">
         <form>
           <div className="text-2xl font-bold">Create New Post</div>
@@ -85,7 +85,7 @@ const CreatePost = () => {
           </div>
         </form>
       </div>
-      <div className="my-20 hidden xl:block">
+      <div className="my-20 hidden lg:block">
         <img src={img} alt="publish post illustration" />
       </div>
     </section>

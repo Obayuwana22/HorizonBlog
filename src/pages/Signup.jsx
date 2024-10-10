@@ -4,6 +4,7 @@ import SubmitBtn from "../components/SubmitBtn";
 import { auth, provider } from "../firebase";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
+import img from "../assets/undrawwelcome.svg";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -73,94 +74,99 @@ const Signup = () => {
   };
 
   return (
-    <section className="flex flex-col justify-center min-h-screen ">
+    <section>
       <ToastContainer />
-      <Form
-        method="post"
-        onSubmit={handleFormSubmit}
-        className="border rounded-lg p-5 my-20 md:max-w-md md:mx-auto bg-white"
-      >
-        <div className="mb-10">
-          <div className="text-2xl font-bold text-center mb-2">Sign Up</div>
-          <p className="text-center text-gray-500">
-            Create your account to start blogging
-          </p>
+      <div className="grid grid-cols-1 justify-center min-h-screen lg:grid-cols-2 lg:items-center">
+        <div className="hidden lg:block">
+          <img src={img} alt="welcome illustration" />
         </div>
-
-        <div className="flex flex-col gap-4 ">
-          <FormInput
-            htmlFor="full name"
-            label="Full Name"
-            type="text"
-            name="fullName"
-            id="full name"
-            placeholder="John Doe"
-            required={true}
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <FormInput
-            htmlFor="email"
-            label="Email"
-            type="email"
-            name="email"
-            id="email"
-            placeholder="John@example.com"
-            required={true}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <FormInput
-            htmlFor="password"
-            label="Password"
-            type="password"
-            name="password"
-            id="password"
-            placeholder="must be atleast 6 digits"
-            required={true}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <FormInput
-            htmlFor="confirm password"
-            label="Confirm Password"
-            type="password"
-            name="confirmPassword"
-            id="confirm password"
-            placeholder="Confirm Password"
-            required={true}
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-          <div className="flex items-center gap-2">
-            <input type="checkbox" />
-            <label className="">
-              I agree to the Terms of
-              <Link className="text-blue-700"> Service</Link> and
-              <Link className="text-blue-700"> Privacy Policy</Link>
-            </label>
+        <Form
+          method="post"
+          onSubmit={handleFormSubmit}
+          className="border rounded-lg p-5 my-20 md:max-w-md md:mx-auto bg-white"
+        >
+          <div className="mb-10">
+            <div className="text-2xl font-bold text-center mb-2">Sign Up</div>
+            <p className="text-center text-gray-500">
+              Create your account to start blogging
+            </p>
           </div>
-        </div>
-        <div className="mt-10 mb-5">
-          <SubmitBtn
-            text="Sign up"
-            onClick={handleClick}
-            isLoading={isSubmitting}
-          />
-        </div>
-        <div className="text-center">Or</div>
-        <div className="mt-5 mb-5">
-          <button
-            onClick={handleSignUpWithGoogle}
-            className="text-blue-700 w-full py-2 border  rounded-lg outline-none"
-          >
-            Sign up with Google
-          </button>
-        </div>
-        <p className="text-center">
-          Already have an account? <Link to="/login">Log in</Link>
-        </p>
-      </Form>
+
+          <div className="flex flex-col gap-4 ">
+            <FormInput
+              htmlFor="full name"
+              label="Full Name"
+              type="text"
+              name="fullName"
+              id="full name"
+              placeholder="John Doe"
+              required={true}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <FormInput
+              htmlFor="email"
+              label="Email"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="John@example.com"
+              required={true}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <FormInput
+              htmlFor="password"
+              label="Password"
+              type="password"
+              name="password"
+              id="password"
+              placeholder="must be atleast 6 digits"
+              required={true}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <FormInput
+              htmlFor="confirm password"
+              label="Confirm Password"
+              type="password"
+              name="confirmPassword"
+              id="confirm password"
+              placeholder="Confirm Password"
+              required={true}
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+            <div className="flex items-center gap-2">
+              <input type="checkbox" />
+              <label className="">
+                I agree to the Terms of
+                <Link className="text-blue-700"> Service</Link> and
+                <Link className="text-blue-700"> Privacy Policy</Link>
+              </label>
+            </div>
+          </div>
+          <div className="mt-10 mb-5">
+            <SubmitBtn
+              text="Sign up"
+              onClick={handleClick}
+              isLoading={isSubmitting}
+            />
+          </div>
+          <div className="text-center">Or</div>
+          <div className="mt-5 mb-5">
+            <button
+              onClick={handleSignUpWithGoogle}
+              className="text-blue-700 w-full py-2 border  rounded-lg outline-none"
+            >
+              Sign up with Google
+            </button>
+          </div>
+          <p className="text-center">
+            Already have an account? <Link to="/login">Log in</Link>
+          </p>
+        </Form>
+      </div>
     </section>
   );
 };
