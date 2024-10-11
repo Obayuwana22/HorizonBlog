@@ -74,9 +74,9 @@ const Signup = () => {
   };
 
   return (
-    <section>
+    <section className="min-h-screen ">
       <ToastContainer />
-      <div className="grid grid-cols-1 justify-center min-h-screen lg:grid-cols-2 lg:items-center">
+      <div className="grid grid-cols-1 justify-center lg:grid-cols-2 lg:items-center">
         <div className="hidden lg:block">
           <img src={img} alt="welcome illustration" />
         </div>

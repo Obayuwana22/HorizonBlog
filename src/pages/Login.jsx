@@ -2,7 +2,10 @@ import { Form, Link, useNavigate } from "react-router-dom";
 import FormInput from "../components/FormInput";
 import SubmitBtn from "../components/SubmitBtn";
 import { useState } from "react";
-import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
 import { auth, provider } from "../firebase";
 import img from "../assets/undrawlogin.svg";
 import { toast, ToastContainer } from "react-toastify";
@@ -46,10 +49,12 @@ const Login = () => {
     e.preventDefault();
   };
 
+
+
   return (
-    <section className="grid grid-cols-1 justify-center min-h-screen lg:grid-cols-2 lg:items-center">
+    <section className="min-h-screen">
       <ToastContainer />
-      <div>
+      <div className="grid grid-cols-1 justify-center  lg:grid-cols-2 lg:items-center">
         <div className="hidden lg:block">
           <img src={img} alt="welcome illustration" />
         </div>
