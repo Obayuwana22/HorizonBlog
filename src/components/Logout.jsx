@@ -13,7 +13,6 @@ const Logout = () => {
       setTimeout(() => {
         navigate("/login");
       }, 1000);
-      console.log("logged out");
     } catch (error) {
       console.log(error.message);
     }

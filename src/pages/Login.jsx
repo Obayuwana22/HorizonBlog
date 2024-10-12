@@ -3,6 +3,7 @@ import FormInput from "../components/FormInput";
 import SubmitBtn from "../components/SubmitBtn";
 import { useState } from "react";
 import {
+  onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
@@ -33,7 +34,8 @@ const Login = () => {
     }
   };
 
-  const handleSignInWithGoogle = async () => {
+  const handleSignInWithGoogle = async (e) => {
+    e.preventDefault()
     try {
       await signInWithPopup(auth, provider);
       toast.success("User login success");
@@ -49,6 +51,15 @@ const Login = () => {
     e.preventDefault();
   };
 
+  if (handleLogin || handleSignInWithGoogle) {
+    try {
+      onAuthStateChanged(auth, (user) => {
+        console.log(user);
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
 
 
   return (
@@ -97,7 +108,7 @@ const Login = () => {
                 <input type="checkbox" />
                 <label className="">Remember me</label>
               </div>
-              <Link to="/forgot password" className="hover:underline">
+              <Link to="/forgot-password" className="hover:underline">
                 Forgot password?
               </Link>
             </div>

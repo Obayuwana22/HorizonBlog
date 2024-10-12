@@ -15,6 +15,7 @@ import {
   SinglePost,
 } from "./pages";
 
+
 const router = createBrowserRouter([
   {
     path: "/",

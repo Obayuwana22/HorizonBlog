@@ -1,12 +1,15 @@
 import { Calendar, Mail } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProfilePosts from "../components/ProfilePosts";
 import ProfileComments from "../components/ProfileComments";
 import ProfileAbout from "../components/ProfileAbout";
 import Logout from "../components/Logout";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase";
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("Posts");
+  const [currentUser, setCurrentUser] = useState("");
 
   const tabs = ["Posts", "Comments", "About"];
 
@@ -34,6 +37,13 @@ const Profile = () => {
     }
   };
 
+  useEffect(() => {
+    onAuthStateChanged(auth, (userCred) => {
+      console.log(userCred);
+      setCurrentUser(userCred);
+    });
+  }, []);
+
   return (
     <section className="flex flex-col justify-center min-h-screen">
       <div className=" border rounded-lg p-5 my-20 md:max-w-md md:mx-auto bg-white">
@@ -42,13 +52,13 @@ const Profile = () => {
             <img src="" alt="Profile picture/avatar" />
           </div>
           <div className="text-center sm:text-left">
-            <div className="text-2xl font-bold">John Doe</div>
-            <p className="text-gray-500">Web Developer</p>
+            <div className="text-md font-bold">{currentUser.displayName}</div>
+            <p className="text-gray-500 text-sm">Web Developer</p>
           </div>
           <div className="ml-auto">
             <button
               type="button"
-              className="bg-black text-white font-semibold px-4 py-2 rounded-lg outline-none"
+              className="bg-black text-white text-sm font-semibold px-3 py-1 rounded-lg outline-none"
             >
               Edit Profile
             </button>
@@ -57,7 +67,7 @@ const Profile = () => {
         <div className="grid grid-cols-1  gap-4 mb-6 mt-10 text-gray-600">
           <div className="flex items-center gap-2 ">
             <Mail color="gray" />
-            <span>John@gmail.com</span>
+            <span>{currentUser.email}</span>
           </div>
           <div className="flex items-center gap-2">
             <Calendar color="gray" />

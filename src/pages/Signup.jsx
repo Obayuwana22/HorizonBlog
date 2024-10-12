@@ -2,7 +2,11 @@ import { Form, Link, useNavigate, useNavigation } from "react-router-dom";
 import FormInput from "../components/FormInput";
 import SubmitBtn from "../components/SubmitBtn";
 import { auth, provider } from "../firebase";
-import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signInWithPopup,
+} from "firebase/auth";
 import { useState } from "react";
 import img from "../assets/undrawwelcome.svg";
 import { toast, ToastContainer } from "react-toastify";
@@ -21,7 +25,7 @@ const Signup = () => {
 
   const isSubmitting = navigation.state === "submitting";
 
-  const handleClick = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
 
     if (name === "") {
@@ -57,7 +61,8 @@ const Signup = () => {
     }
   };
 
-  const handleSignUpWithGoogle = async () => {
+  const handleSignUpWithGoogle = async (e) => {
+    e.preventDefault();
     try {
       await signInWithPopup(auth, provider);
       toast.success("Account created successfully");
@@ -72,6 +77,17 @@ const Signup = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
   };
+
+  if (handleSignup || handleSignUpWithGoogle) {
+    try {
+      onAuthStateChanged(auth, (user) => {
+        console.log(user);
+        // console.log("createdAt:", new Date());
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
 
   return (
     <section className="min-h-screen ">
@@ -149,7 +165,7 @@ const Signup = () => {
           <div className="mt-10 mb-5">
             <SubmitBtn
               text="Sign up"
-              onClick={handleClick}
+              onClick={handleSignup}
               isLoading={isSubmitting}
             />
           </div>
